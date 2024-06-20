@@ -1,0 +1,14 @@
+name: rustfmt
+on: [workflow_call]
+
+jobs:
+  rustfmt:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code.
+        uses: actions/checkout@v4
+
+      - name: Run `rustfmt`.
+        run: cargo fmt --check

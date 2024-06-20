@@ -1,0 +1,38 @@
+[package]
+name = "shellcoder"
+version = "0.1.0"
+edition = "2021"
+authors = ["zadig <zadig@riseup.net>"]
+rust-version = "1.61.0"
+description = "Write shellcode payloads in a flash"
+documentation = "https://doc.rs/shellcoder"
+repository = "https://github.com/zadlg/shellcoder"
+license = "Apache-2.0"
+keywords = ["shellcode", "security", "offsec"]
+categories = ["encoding", "development-tools"]
+
+[features]
+default = []
+serde = ["dep:serde", "dep:serde_with"]
+std = []
+
+[dependencies]
+serde = { version = "1.0.203", optional = true, features = ["derive"] }
+serde_with = { version = "3.8.1", optional = true }
+
+[lints.clippy]
+all = { level = "deny", priority = -1 }
+restriction = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+nursery = { level = "deny", priority = -1 }
+cargo = { level = "deny", priority = -1 }
+implicit_return = "allow"
+pub_with_shorthand = "allow"
+missing_trait_methods = "allow"
+pattern_type_mismatch = "allow"
+impl_trait_in_params = "allow"
+question_mark_used = "allow"
+little_endian_bytes = "allow"
+big_endian_bytes = "allow"
+blanket_clippy_restriction_lints = "allow"
+semicolon_outside_block = "allow"
