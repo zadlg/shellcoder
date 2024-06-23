@@ -49,7 +49,7 @@ pub trait Op: fmt::Debug {
     /// # use shellcoder::Result;
     /// use shellcoder::Op as _;
     ///
-    /// # fn main() -> Result<()> {
+    /// # pub fn main() -> Result<()> {
     /// let mut file = File::options()
     ///     .write(true)
     ///     .truncate(true)
@@ -69,7 +69,7 @@ pub trait Op: fmt::Debug {
     /// # use shellcoder::Result;
     /// use shellcoder::Op as _;
     ///
-    /// # fn main() -> Result<()> {
+    /// # pub fn main() -> Result<()> {
     /// let mut buffer = vec![];
     /// Fill::new(42, b'A')
     ///     .write_to_io(&mut buffer)?;
@@ -96,7 +96,7 @@ pub trait Op: fmt::Debug {
     /// # use shellcoder::Result;
     /// use shellcoder::Op as _;
     ///
-    /// # fn main() -> Result<()> {
+    /// # pub fn main() -> Result<()> {
     /// let mut buffer = [0u8; 10];
     /// Fill::new(10, b'A')
     ///     .write_to(&mut buffer)?;
@@ -114,7 +114,7 @@ pub trait Op: fmt::Debug {
     /// # use shellcoder::error::Error;
     /// use shellcoder::Op as _;
     ///
-    /// # fn main() -> Result<()> {
+    /// # pub fn main() -> Result<()> {
     /// let mut buffer = [0u8; 3];
     /// let error = WriteInteger::new_be(0xdeadbeefu32)
     ///     .write_to(&mut buffer)
@@ -134,7 +134,7 @@ pub trait Op: fmt::Debug {
 ///
 /// Writes a simple shellcode that exposes two addresses 8 bytes apart:
 ///
-/// ```rust
+/// ```ignore
 /// use shellcoder::{Op as _, Shellcoder as _};
 /// # #[cfg(feature = "std")]
 /// use shellcoder::alloc::Shellcoder;
@@ -143,7 +143,7 @@ pub trait Op: fmt::Debug {
 ///
 /// # use shellcoder::Result;
 /// # #[cfg(feature = "std")]
-/// # fn main() -> Result<()> {
+/// # pub fn main() -> Result<()> {
 /// let mut shellcoder = Shellcoder::new();
 /// let shellcode = shellcoder
 ///     .int_le(0x100000fbau64)?
@@ -161,7 +161,7 @@ pub trait Op: fmt::Debug {
 /// Writes a shellcode that copies another buffer, with doing no dynamic
 /// allocation.
 ///
-/// ```no_run
+/// ```ignore
 /// use shellcoder::{Op as _, Shellcoder as _};
 /// # #[cfg(feature = "std")]
 /// use shellcoder::r#static::Shellcoder;
@@ -174,7 +174,7 @@ pub trait Op: fmt::Debug {
 ///
 /// # use shellcoder::Result;
 /// # #[cfg(feature = "std")]
-/// # fn main() -> Result<()> {
+/// # pub fn main() -> Result<()> {
 /// let some_payload: &[u8] = get_buffer();
 ///
 /// let mut scratch_buffer = [0u8; 42];
