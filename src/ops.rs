@@ -326,6 +326,7 @@ mod tests {
             Ok(())
         }
 
+        #[cfg(feature = "std")]
         #[test]
         fn test() -> Result<()> {
             {
@@ -385,6 +386,7 @@ mod tests {
             Ok(())
         }
 
+        #[cfg(feature = "std")]
         #[test]
         fn test() -> Result<()> {
             {
